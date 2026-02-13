@@ -500,7 +500,7 @@ export default function ValentineGame() {
                 <motion.img
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  src="/images/selfie.jfif"
+                  src="/Valen/images/selfie.jfif"
                   className="w-full h-full object-cover"
                   alt="Static Selfie"
                 />
@@ -601,14 +601,26 @@ export default function ValentineGame() {
                     Happy Valentine’s Day!."</p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-6 max-w-5xl px-4">
-                  {/* Selfie captured image removed from here as per request */}
+                {/* Grid forced to 3-over-2 on mobile using a custom grid layout */}
+                <div className="grid grid-cols-6 gap-4 max-w-5xl px-4 justify-items-center">
                   {['img1', 'img2', 'img3', 'img4', 'img5'].map((img, i) => (
-                    <motion.div key={i} initial={{ opacity: 0, scale: 0, rotate: -20 }} animate={{ opacity: 1, scale: 1, rotate: i % 2 === 0 ? 5 : -5 }}
-                      transition={{ delay: i * 0.2, type: 'spring' }} whileHover={{ scale: 1.1, rotate: 0, zIndex: 10 }}
-                      className="w-40 h-56 md:w-56 md:h-72 bg-white p-3 shadow-2xl rounded-sm border-b-[20px] border-white"
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0, rotate: -20 }}
+                      animate={{ opacity: 1, scale: 1, rotate: i % 2 === 0 ? 5 : -5 }}
+                      transition={{ delay: i * 0.2, type: 'spring' }}
+                      whileHover={{ scale: 1.1, rotate: 0, zIndex: 10 }}
+                      className={`
+                        bg-white p-2 md:p-3 shadow-2xl rounded-sm border-b-[15px] md:border-b-[20px] border-white
+                        ${i < 3 ? 'col-span-2' : 'col-span-3'} 
+                        w-full max-w-[120px] md:max-w-[200px] aspect-[3/4]
+                      `}
                     >
-                      <img src={`/images/${img}.jpeg`} className="w-full h-full object-cover" alt="Memory" />
+                      <img
+                        src={`/Valen/images/${img}.jpeg`}
+                        className="w-full h-full object-cover"
+                        alt="Memory"
+                      />
                     </motion.div>
                   ))}
                 </div>
