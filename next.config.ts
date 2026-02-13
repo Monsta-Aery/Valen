@@ -1,21 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* Required for Next.js to generate static HTML, CSS, and JS files (instead of a server) */
+  output: 'export',
+
+  /* * Recommended for static exports: 
+   * Disables the built-in image optimization API which requires a Node.js server.
+   */
+  images: {
+    unoptimized: true,
+  },
+
+  /* * If your repository name is NOT 'username.github.io' (e.g., it's 'my-repo'), 
+   * you MUST uncomment the line below and add your repository name:
+   */
+  // basePath: '/your-repo-name', 
 };
 
 export default nextConfig;
-
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   // Required for Next.js to generate static HTML, CSS, and JS files (instead of a server)
-//   output: 'export',
-
-//   /* * Optional: Add other configurations here, such as:
-//    * basePath: '/my-portfolio', // Useful if deploying to a subpath
-//    * images: { unoptimized: true }, // Recommended for static exports if you use the built-in Next/Image component
-//    */
-// };
-
-// export default nextConfig;
