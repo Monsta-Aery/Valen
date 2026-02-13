@@ -1,20 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* Required for Next.js to generate static HTML, CSS, and JS files (instead of a server) */
+  /* Required for static HTML/CSS/JS generation */
   output: 'export',
 
-  /* * Recommended for static exports: 
-   * Disables the built-in image optimization API which requires a Node.js server.
-   */
+  /* Disables dynamic image optimization (required for GitHub Pages) */
   images: {
     unoptimized: true,
   },
 
-  /* * If your repository name is NOT 'username.github.io' (e.g., it's 'my-repo'), 
-   * you MUST uncomment the line below and add your repository name:
+  /* * If your GitHub URL is https://<username>.github.io/my-portfolio-frontend/
+   * you MUST uncomment the line below and use your repo name.
    */
-  // basePath: '/your-repo-name', 
+  // basePath: '/my-portfolio-frontend',
 };
 
 export default nextConfig;
