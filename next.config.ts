@@ -1,18 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* Required for static HTML/CSS/JS generation */
+  // 1. Mandatory for GitHub Pages (Static Site Generation)
   output: 'export',
 
-  /* Disables dynamic image optimization (required for GitHub Pages) */
+  // 2. Mandatory because GitHub Pages doesn't have a server to resize images
   images: {
     unoptimized: true,
   },
 
-  /* * If your GitHub URL is https://<username>.github.io/my-portfolio-frontend/
-   * you MUST uncomment the line below and use your repo name.
-   */
-  // basePath: '/my-portfolio-frontend',
+  // 3. FIX FOR 404: Tell Next.js the repository name
+  basePath: '/Valen',
+
+  // 4. Ensure internal links and assets use the correct sub-folder path
+  assetPrefix: '/Valen',
 };
 
 export default nextConfig;
